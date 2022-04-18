@@ -1,10 +1,10 @@
-//import logo from './logo.svg';
-import Home from "./pages/Home";
-import './App.css';
+// //import logo from './logo.svg';
+// import Home from "./pages/Home";
+// import './App.css';
 
-const App = () => {
-  return  <Home/>;
+// const App = () => {
+//   return  <Home/>;
   
-}
+// }
 
-export default App;
+// export default App;

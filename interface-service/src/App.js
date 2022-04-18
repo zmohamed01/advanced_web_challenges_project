@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter,Routes, Route, Link,Switch} from 'react-router-dom';
 import Login from './components/Login';
+import Home from './pages/Home';
 
 function App() {
 
@@ -34,18 +35,19 @@ function App() {
         setUser({name: "", email: ""});
     }
 
-  return (
-    <div className="App">
-        {(user.email != "") ? (
-            <div className= "welcome">
-                <h2> Welcome, <span>{user.name}</span></h2>
-                <button onClick={Logout}>Logout</button>
-            </div>
-        ) : (
-            <Login LoggingIn={LoggingIn} error={error}/>
-        )}
-    </div>
-  );
+//   return (
+//     <div className="App">
+//         {(user.email != "") ? (
+//             <div className= "welcome">
+//                 <h2> Welcome, <span>{user.name}</span></h2>
+//                 <button onClick={Logout}>Logout</button>
+//             </div>
+//         ) : (
+//             <Login LoggingIn={LoggingIn} error={error}/>
+//         )}
+//     </div>
+//   );
+return <Home/> 
 }
 
 export default App;

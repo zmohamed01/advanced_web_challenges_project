@@ -32,10 +32,10 @@ function Login({LoggingIn, error}){
                                                     <h4 class="mb-4 pb-3">Log In</h4>
                                                     <div className="form-group">
                                                          {(error != "") ? ( <div className= "error">{error}</div>) : ""}
-                                                        <div className="form-group">
+                                                        {/* <div className="form-group">
 
                                                             <input type="text" name="name" class="form-style" placeholder= "Your name" id="name" onChange={e => setDetails({...details, name:e.target.value})}value={details.name}/>
-                                                        </div>
+                                                        </div> */}
                                                         <div className="form-group">
 
                                                             <input type="email"  name="email" class="form-style" placeholder= "Your email" id="email" onChange={e => setDetails({...details, email:e.target.value})}value={details.email}/>

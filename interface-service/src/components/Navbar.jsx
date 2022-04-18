@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Search, ShoppingCartSharp, ContactSupport } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
+import {Link} from "react-router-dom"
 
 const Container = styled.div`
     height: 60px;
@@ -74,7 +75,7 @@ const Navbar = () => {
         </CNav>
         <RNav>
           <PageLinks>SIGNUP</PageLinks>
-          <PageLinks>LOGIN</PageLinks>
+          <PageLinks><Link to="/Login">LOGIN</Link></PageLinks>
           <SearchBar>
           <Input/>
           <Search style = {{color: "purple", fontSize: 18}} />
