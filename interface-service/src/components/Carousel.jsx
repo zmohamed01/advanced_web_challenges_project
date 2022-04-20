@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { ArrowRightRounded, ArrowLeftRounded } from "@material-ui/icons";
 import { carouselSlides } from "../data";
 import { useState } from "react";
+import {Link} from "react-router-dom"
+
 
 const Container = styled.div`
     height: 85vh;
@@ -97,15 +99,15 @@ const Carousel = () => {
         </Director>
         <Container2 num = {num}>
             {carouselSlides.map(item=>(
-            <Slide background={item.background} >
+            <Slide background={item.background} key = {item.id} >
   
             <Images>
                 <Img src={item.image}/>
             </Images>
             <Details><Heading>{item.heading}</Heading>
             <Paragraph>{item.paragraph}</Paragraph>
-            <Button>SHOP MENS</Button> &nbsp;&nbsp;&nbsp;
-            <Button>SHOP WOMENS</Button>
+            <Button><Link style={{ textDecoration: 'none'}} to="/Men">SHOP MENS</Link></Button> &nbsp;&nbsp;&nbsp;
+            <Button><Link style={{ textDecoration: 'none'}} to="/Women">SHOP WOMENS</Link></Button>
             </Details>
             </Slide>
              ) )}

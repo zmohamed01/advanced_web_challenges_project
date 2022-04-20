@@ -22,6 +22,7 @@ export const carouselSlides = [
     },
   ];
 
+
   export const female_product_types = [
     {
       id: 1,

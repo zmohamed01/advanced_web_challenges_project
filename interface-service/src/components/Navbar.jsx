@@ -3,16 +3,18 @@ import styled from 'styled-components'
 import { Search, ShoppingCartSharp, ContactSupport } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import {Link} from "react-router-dom"
+import logo from './logo2.png';
 
 const Container = styled.div`
-    height: 60px;
-    margin-bottom: 45px ;
+    height: 100px;
+    /* background-color: #FAF9F6 ; */
 `
 const Container2 = styled.div`
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: #FAF9F6 ; */
 `
 const LNav = styled.div`
   flex: 1;
@@ -41,10 +43,11 @@ const SearchBar = styled.div`
 const Input = styled.input`
   border: none;
 `
-const Logo = styled.h1`
-  font-weight: bold;
-  /* font-style: italic; */
-`
+
+  const Logo = styled.img`
+   cursor: pointer;
+    width: 75%;
+    `
 
 const PageLinks = styled.div`
   font-size: 15px;
@@ -62,20 +65,22 @@ const IconLinks = styled.div`
   margin-left: 50px;
 `
 
+
 const Navbar = () => {
   return (
     <Container> 
       <Container2>
         <LNav>
-          <FirstPageLinks>MEN</FirstPageLinks>
-          <PageLinks>WOMEN</PageLinks>
+          <FirstPageLinks><Link style={{ textDecoration: 'none'}} to="/Men">MEN</Link></FirstPageLinks>
+          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Women">WOMEN</Link></PageLinks>
         </LNav>
         <CNav>
-          <Logo>TAILORED 4 U.</Logo>
+          
+          <Link to="/"><Logo src = {logo} /></Link>
         </CNav>
         <RNav>
           <PageLinks>SIGNUP</PageLinks>
-          <PageLinks><Link to="/Login">LOGIN</Link></PageLinks>
+          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>
           <SearchBar>
           <Input/>
           <Search style = {{color: "purple", fontSize: 18}} />
