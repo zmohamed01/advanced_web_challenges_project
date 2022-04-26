@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import { capitalize } from '@mui/material';
+import { requirePropFactory } from '@material-ui/core';
 
 
 const Container2 = styled.div`
@@ -79,15 +80,15 @@ const MProductType = () => {
     })
   } , []);
 
-  return (
+  return categories==[] ? (<div>Loading ....</div>) : (
     <Container2>
       {
         categories.map(e=>(
           <Container>
-            <Image src= "https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+            <Image src= {require(`../images/${e.name}.jpg`)} />
           <Info>
             <Title> {e.name}</Title>
-            <Button><Link style={{ textDecoration: 'none'}} to="/Men/Shirts">SHOP NOW</Link></Button>
+            <Button><Link style={{ textDecoration: 'none'}} to={`/Men/${e.name}`}>SHOP NOW</Link></Button>
           </Info></Container>
         ))
         }

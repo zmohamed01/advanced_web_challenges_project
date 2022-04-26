@@ -79,7 +79,7 @@ const Navbar = () => {
           <Link to="/"><Logo src = {logo} /></Link>
         </CNav>
         <RNav>
-          <PageLinks>SIGNUP</PageLinks>
+          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Signup">SIGNUP</Link></PageLinks>
           <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>
           <SearchBar>
           <Input/>
