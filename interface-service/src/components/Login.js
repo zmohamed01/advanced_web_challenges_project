@@ -10,11 +10,6 @@ function Login({LoggingIn, error}){
         LoggingIn(details);
     }
 
-//    function register(){
-//        const[FullName , setName] = useState("")
-//        const[Email , setEmail] = useState("")
-//        const[Password , setPassword] = useState("")
-   
 
     return(
 

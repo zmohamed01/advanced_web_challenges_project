@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
-// import './Signup.css';
-// import '../components/login.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { LaptopWindows } from '@material-ui/icons';
-import { validEmail, validPassword } from './regex.js';
- function Signup()
+import { validEmail, validPassword } from './email-regex.js';
+import { useEffect} from "react-router-dom";
+import { useForm} from 'react-hook-form';
+
+
+// const validateEmail = Email => typeof Email === "string" && Email.includes('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$');
+
+function Signup()
  {
 
        const[FullName , setName] = useState("")
@@ -18,16 +22,11 @@ import { validEmail, validPassword } from './regex.js';
        const [signupStatus , setSignupStatus] = useState(false)
        const [emailErr , setEmailErr] = useState(false)
        const [pwdError , setPwdError] = useState(false)
+      //  const [isDisabled, setIsDisabled] = React.useState(true);
+ 
+      
 
-  //   const validate = () => {
-  //     if (!validEmail.test(Email)) {
-  //        setEmailErr(true);
-  //     }
-  //     if (!validPassword.test(Password)) {
-  //        setPwdError(true);
-  //     }
-  //  };
-   
+
 
   
 
@@ -71,21 +70,17 @@ import { validEmail, validPassword } from './regex.js';
          if (!validPassword.test(Password)) {
             setPwdError(true);
          }
-           
-      //     if(createUserResponse.status === 400){
-      //       window.alert("User Already Exist");
-      // }
+
       
-        
-          
-          //history.push("/Login");
-          //window.location.replace('./Login') 
-        
        }
+
+       console.log('error');
+
+      //  const { register , handleSubmit,formState: {errors}} = useForm();
 
 return (
 //  <div class="card-back">
-<div class="center-wrap">
+<div class="center-wrap" >
     <div class="section text-center">
         <h4 class="mb-4 pb-3">Sign Up</h4>
         <div class="form-group">
@@ -93,15 +88,15 @@ return (
             <i class="input-icon uil uil-user"></i>
         </div>
         <div class="form-group mt-2">
-            <input type="email" value={Email} onChange={(e)=>setEmail(e.target.value)} name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+            <input type="email"  value={Email} onChange={(e)=>setEmail(e.target.value)} name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
             <i class="input-icon uil uil-at"></i>
             <span style={{
           fontWeight: 'bold',
           color: 'red',
         }}> {emailErr && <>Your email is invalid</>}</span>
         </div>
-        <div class="form-group mt-2">
-            <input type="password" value={Password} onChange={(e)=>setPassword(e.target.value)} name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+        <div class="form-group mt-2" >
+            <input type="password" value={Password} onChange={(e)=>setPassword(e.target.value)}  name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
             <i class="input-icon uil uil-lock-alt"></i>
             <span style={{
           fontWeight: 'bold',
@@ -110,8 +105,6 @@ return (
         </div>
         <br/>
          <input type="submit" onClick={signUp} class="btn mt-4" value="SUBMIT"/>
-         
-
          
          {/* {pwdError && <p>Your password is invalid</p>} */}
     </div>
