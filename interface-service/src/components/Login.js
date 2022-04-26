@@ -10,6 +10,12 @@ function Login({LoggingIn, error}){
         LoggingIn(details);
     }
 
+//    function register(){
+//        const[FullName , setName] = useState("")
+//        const[Email , setEmail] = useState("")
+//        const[Password , setPassword] = useState("")
+   
+
     return(
 
         <form onSubmit = {submitHandler}>
@@ -63,11 +69,11 @@ function Login({LoggingIn, error}){
                                                         <i class="input-icon uil uil-user"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+                                                        <input type="email"  name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
                                                         <i class="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+                                                        <input type="password"  name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <br/>
@@ -84,7 +90,7 @@ function Login({LoggingIn, error}){
             </div>
         </form>
     )
-
+                                                    
 
 }
 

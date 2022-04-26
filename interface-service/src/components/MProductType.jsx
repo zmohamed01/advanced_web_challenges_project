@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState , useEffect} from 'react'
 import styled from 'styled-components'
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import axios from 'axios';
+import { capitalize } from '@mui/material';
+
 
 const Container2 = styled.div`
   display: flex;
@@ -58,13 +61,41 @@ const Button = styled.button`
     font-weight: 700;
 `;
 
+
+
+
 const MProductType = () => {
+
+   const [categories , setCategories] = useState([])
+
+  useEffect(() => {
+    console.log("Use effect called");
+    axios({
+      method:'get',
+      url:'http://localhost:8000/api/category'
+    }).then((response)=>{
+      console.log(response.data)
+      setCategories(response.data)
+    })
+  } , []);
+
   return (
     <Container2>
-      <Container>
+      {
+        categories.map(e=>(
+          <Container>
+            <Image src= "https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+          <Info>
+            <Title> {e.name}</Title>
+            <Button><Link style={{ textDecoration: 'none'}} to="/Men/Shirts">SHOP NOW</Link></Button>
+          </Info></Container>
+        ))
+        }
+      
+      {/*<Container>
       <Image src= "https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
     <Info>
-      <Title> Browse Shirts</Title>
+      <Title> Browse Shirts 1</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Men/Shirts">SHOP NOW</Link></Button>
     </Info></Container>
     <Container>
@@ -73,6 +104,7 @@ const MProductType = () => {
       <Title> Browse Trousers</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Men/Trousers">SHOP NOW</Link></Button>
     </Info></Container>
+      */}
   </Container2>
   
   )

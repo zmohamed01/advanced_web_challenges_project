@@ -66,7 +66,7 @@ const FProduct = ({item}) => {
   return (
     <Container>
         <Images>
-        <Image src = {item.img}/>
+        <Image src = {require(`../images/${item.id}.jpg`)}/>
         </Images>
         <AccordionCont>
         <Accordion expanded='true'>

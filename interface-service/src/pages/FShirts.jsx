@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fshirts} from '../data'
+import {fshirts} from '../data'
 import Product from '../components/Product'
 import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'

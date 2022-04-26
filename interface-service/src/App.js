@@ -4,6 +4,7 @@ import './App.css';
 
 import {BrowserRouter,Routes, Route, Link,Switch} from 'react-router-dom';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import Home from './pages/Home';
 
 function App() {

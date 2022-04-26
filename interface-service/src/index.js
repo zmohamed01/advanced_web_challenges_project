@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Routes, Route, Link,Switch} from 'react-router-dom';
 import Login from './components/Login';
+import Signup from './components/Signup'
 import Navbar from './components/Navbar';
 import Women from './pages/Women';
 import Men from './pages/Men';
@@ -19,6 +20,7 @@ ReactDOM.render(
    <Routes>
      <Route path = "/" element={<App/>}> </Route>
      <Route path = "/Login" element={<Login/>}> </Route>
+     <Route path = "/Signup" element={<Signup/>}> </Route>
      <Route path = "/Men" element={<Men/>}> </Route>
      <Route path = "/Women" element={<Women/>}> </Route>
      <Route path = "/Women/Dresses" element={<Dresses/>}> </Route>
