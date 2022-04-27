@@ -14,6 +14,9 @@ import FShirts from './pages/FShirts';
 import FTrousers from './pages/FTrousers';
 import MShirts from './pages/MShirts';
 import MTrousers from './pages/MTrousers';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+
 
 ReactDOM.render(
    <BrowserRouter> 
@@ -28,6 +31,8 @@ ReactDOM.render(
      <Route path = "/Women/Trousers" element={<FTrousers/>}> </Route>
      <Route path = "/Men/Shirts" element={<MShirts/>}> </Route>
      <Route path = "/Men/Trousers" element={<MTrousers/>}> </Route>
+     <Route path = "/Cart" element={<Cart/>}> </Route>
+     <Route path = "/Checkout" element={<Checkout/>}> </Route>
 
    </Routes>
 

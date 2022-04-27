@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Search, ShoppingCartSharp, ContactSupport } from "@material-ui/icons";
+import { Search, ShoppingCartSharp, ContactSupport, ShoppingBasket } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import {Link} from "react-router-dom"
 import logo from './logo2.png';
@@ -79,7 +79,6 @@ const Navbar = () => {
           <Link to="/"><Logo src = {logo} /></Link>
         </CNav>
         <RNav>
-          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Signup">SIGNUP</Link></PageLinks>
           <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>
           <SearchBar>
           <Input/>
@@ -87,7 +86,11 @@ const Navbar = () => {
           </SearchBar>
             <Badge badgeContent={4} color="primary">
             <IconLinks>
-            <ShoppingCartSharp/></IconLinks>
+            <Link style={{ textDecoration: 'none'}} to="/Cart"> <ShoppingBasket/></Link>
+           </IconLinks>
+           <IconLinks>
+            <Link style={{ textDecoration: 'none'}} to="/Checkout"> <ShoppingCartSharp/></Link>
+           </IconLinks>
             </Badge>
             <IconLinks>
             <ContactSupport/>

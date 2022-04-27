@@ -1,8 +1,9 @@
 import React, { Component, useEffect, useState } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
-import { useHistory } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 function Cart(){
     const navigate = useNavigate();
@@ -58,7 +59,7 @@ function Cart(){
                 <tbody>
                     {cart.map((item)=> {
                         return(
-                    <tr>
+                    <tr key={idx}>
                         <td width="10%">
                             <img src="" alt= "Prod Image" width="50px" height="50px"/>
                         </td>
@@ -106,6 +107,21 @@ function Cart(){
                     <div className="row">
                         <div className= "col-md-12">
                             {cart_HTML}        
+                        </div>
+
+                        <div className="col-md-8"></div>
+                        <div className="col-md-4">
+                            <div className="card card-body mt-3">
+                                <br/>
+                                <h4>Sub Total:
+                                    <span className="float-end">00</span>
+                                </h4>
+                                <h4> Grand Total:
+                                    <span className="float-end">00</span>
+                                </h4>
+                                <hr/>
+                                <Link to = "/checkout" className="btn btn-primary"> Checkout</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
