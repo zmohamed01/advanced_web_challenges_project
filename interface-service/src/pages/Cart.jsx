@@ -59,7 +59,7 @@ function Cart(){
                 <tbody>
                     {cart.map((item)=> {
                         return(
-                    <tr key={idx}>
+                    <tr key={item.id}>
                         <td width="10%">
                             <img src="" alt= "Prod Image" width="50px" height="50px"/>
                         </td>

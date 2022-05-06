@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Search, ShoppingCartSharp, ContactSupport, ShoppingBasket } from "@material-ui/icons";
+import { Search, ShoppingCartSharp, ContactSupport } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import {Link} from "react-router-dom"
 import logo from './logo2.png';
+
+import { useSelector } from 'react-redux'
 
 const Container = styled.div`
     height: 100px;
@@ -67,6 +69,20 @@ const IconLinks = styled.div`
 
 
 const Navbar = () => {
+
+  const state = useSelector((state) => state);
+  const products = state.shop.products;
+  let qty = 0 ;
+  console.log(' ############## ' , products.length)
+  let totalQty = 0;
+  for( let i = 0 ; i<products.length ; i++){
+      console.log (' ---> ' , products[i].qty) //products[1]
+       totalQty = totalQty + products[i].qty;
+      // console.log(products[i])
+  }
+
+  console.log('Total qty = ', totalQty);
+  //console.log("products in cart.....",products);
   return (
     <Container> 
       <Container2>
@@ -79,18 +95,15 @@ const Navbar = () => {
           <Link to="/"><Logo src = {logo} /></Link>
         </CNav>
         <RNav>
+          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Signup">SIGNUP</Link></PageLinks>
           <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>
           <SearchBar>
           <Input/>
           <Search style = {{color: "purple", fontSize: 18}} />
           </SearchBar>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={totalQty} color="primary">
             <IconLinks>
-            <Link style={{ textDecoration: 'none'}} to="/Cart"> <ShoppingBasket/></Link>
-           </IconLinks>
-           <IconLinks>
-            <Link style={{ textDecoration: 'none'}} to="/Checkout"> <ShoppingCartSharp/></Link>
-           </IconLinks>
+            <ShoppingCartSharp/></IconLinks>
             </Badge>
             <IconLinks>
             <ContactSupport/>
