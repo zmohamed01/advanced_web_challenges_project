@@ -1,0 +1,25 @@
+services:
+
+
+  backend-service:
+    build: ./backend-service
+    volumes:
+      - ./backend-service:/usr/src/app
+    ports:
+      - 4000:4000
+
+
+  interface-service:
+    build: ./interface-service
+    volumes:
+      - ./interface-service:/usr/src/app
+    ports:
+      - 8000:8000
+
+
+  orderanalysis-service:
+    build: ./orderanalysis-service
+    volumes:
+      - ./interface-service:/usr/src/app
+    ports:
+      - 7000:7000
