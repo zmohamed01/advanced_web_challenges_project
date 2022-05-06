@@ -26,7 +26,11 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             
             return{...INITIAL_STATE ,products : updatedProduct };
         case actionTypes.REMOVE_FROM_CART:
-            return{};
+            const remainingPrudctsAfterRemoval = state.products.filter(e=> e.id !== action.payload.id)
+            console.log('Remove product' , action.payload);
+
+           
+            return {...state , products : remainingPrudctsAfterRemoval};
         case actionTypes.ADJUST_QTY:
             return{};
         default:

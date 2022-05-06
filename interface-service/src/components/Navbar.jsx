@@ -6,6 +6,10 @@ import {Link} from "react-router-dom"
 import logo from './logo2.png';
 
 import { useSelector } from 'react-redux'
+import * as actionTypes from  '../redux/shopping/shopping-types';
+
+export let totalQty;
+
 
 const Container = styled.div`
     height: 100px;
@@ -101,10 +105,13 @@ const Navbar = () => {
           <Input/>
           <Search style = {{color: "purple", fontSize: 18}} />
           </SearchBar>
+          <Link 
+          style={{ textDecoration: 'none'}} to = "/Cart">
             <Badge badgeContent={totalQty} color="primary">
             <IconLinks>
             <ShoppingCartSharp/></IconLinks>
             </Badge>
+            </Link>
             <IconLinks>
             <ContactSupport/>
             </IconLinks>

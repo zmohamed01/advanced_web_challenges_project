@@ -4,11 +4,27 @@ import swal from 'sweetalert';
 // import { useHistory } from 'react-router-dom';
 import { useNavigate, Link } from 'react-router-dom';
 
+import { useSelector  , useDispatch} from 'react-redux'
+import * as actionTypes from  '../redux/shopping/shopping-types';
 
 function Cart(){
+    const dispatch = useDispatch()
     const navigate = useNavigate();
-    const [loading, setLoading ] = useState(true);
-    const [cart, setCart] = useState([]);
+
+    const removeItem = (product) => {
+        console.log("Product = ", product);
+        dispatch({ type:actionTypes.REMOVE_FROM_CART  , payload: product})
+    }
+
+
+const state = useSelector((state) => state);
+const products = state.shop.products;
+
+console.log(" ===>>> " , products)
+
+
+const [loading, setLoading ] = useState(true);
+const [cart, setCart] = useState([]);
 
     // if(!localStorage.getItem('auth_token')){
     //     navigate.push("/");
@@ -42,7 +58,7 @@ function Cart(){
     // }
 
     var cart_HTML = '';
-    if(cart.length > 0)
+    if(products.length > 0)
     {
         cart_HTML =    <div className = "table-responsive">
             <table className="table table-bordered">
@@ -57,24 +73,24 @@ function Cart(){
                     </tr>
                 </thead>
                 <tbody>
-                    {cart.map((item)=> {
+                    {products.map((product)=> {
                         return(
-                    <tr key={item.id}>
+                    <tr key={product.id}>
                         <td width="10%">
-                            <img src="" alt= "Prod Image" width="50px" height="50px"/>
+                            <img src={product.image} alt= "Prod Image" width="50px" height="50px"/>
                         </td>
-                        <td>{item.product.name}</td>
-                        <td width="15%" className="text-center">{item.product.selling_price}</td>
+                        <td>{product.name}</td>
+                        <td width="15%" className="text-center">{product.price}</td>
                         <td width="15%">
                             <div className="input-group">
                                 <button type="button" className="input-group-text">-</button>
-                                <div  className="form-control text-center">{item.product.qty}</div>
+                                <div  className="form-control text-center">{product.qty}</div>
                                 <button type="button" className="input-group-text">+</button>
                             </div>
                         </td>
-                        <td width="15%" className="text-center">{item.product.selling_price * item.product.qty }</td>
+                        <td width="15%" className="text-center">{product.price * product.qty }</td>
                         <td width="10%">
-                            <button type="button" className="btn btn-danger btn-sm">Remove</button>
+                            <button type="button" className="btn btn-danger btn-sm" onClick= {()=> removeItem(product)}> Remove</button>
                         </td>
                     </tr>
                         )
@@ -94,41 +110,41 @@ function Cart(){
         </div>
     }
     return(
-        <div>
-            <div className="py-3 bg-warning">
-                <div className="container">
-                    <h6>
-                        Home/Cart
-                    </h6>
+            <div>
+                <div className="py-3 bg-warning">
+                    <div className="container">
+                        <h6>
+                            Home/Cart
+                        </h6>
+                    </div>
                 </div>
-            </div>
-            <div className="py-4">
-                <div className= "container">
-                    <div className="row">
-                        <div className= "col-md-12">
-                            {cart_HTML}        
-                        </div>
+                <div className="py-4">
+                    <div className= "container">
+                        <div className="row">
+                            <div className= "col-md-12">
+                                {cart_HTML}        
+                            </div>
 
-                        <div className="col-md-8"></div>
-                        <div className="col-md-4">
-                            <div className="card card-body mt-3">
-                                <br/>
-                                <h4>Sub Total:
-                                    <span className="float-end">00</span>
-                                </h4>
-                                <h4> Grand Total:
-                                    <span className="float-end">00</span>
-                                </h4>
-                                <hr/>
-                                <Link to = "/checkout" className="btn btn-primary"> Checkout</Link>
+                            <div className="col-md-8"></div>
+                            <div className="col-md-4">
+                                <div className="card card-body mt-3">
+                                    <br/>
+                                    <h4>Sub Total:
+                                        <span className="float-end">00</span>
+                                    </h4>
+                                    <h4> Grand Total:
+                                        <span className="float-end">00</span>
+                                    </h4>
+                                    <hr/>
+                                    <Link to = "/Checkout" className="btn btn-primary"> Checkout</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    )
+        )
 }
 
 

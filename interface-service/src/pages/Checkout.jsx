@@ -3,16 +3,20 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { Navigate, useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector  , useDispatch} from 'react-redux'
 function Checkout(){
     
-    const navigate = useNavigate();
-    if(!localStorage.getItem('auth_token')){
-        navigate.push('/');
-        swal("Warning", "Login to go to Cart Page", "error");
-    }
+    const state = useSelector((state) => state);
+    const products = state.shop.products;
 
-    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    let totalCartPrice = 0;
+    // if(!localStorage.getItem('auth_token')){
+    //     navigate.push('/');
+    //     swal("Warning", "Login to go to Cart Page", "error");
+    // }
+
+ /*   const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
     var totalCartPrice = 0;
 
@@ -33,15 +37,10 @@ function Checkout(){
                 }
             });
 
-        return () =>{
-            isMounted = false
-        };
-        }, [navigate]);
-
         if(loading){
             return <h4>Loading Checkout ...</h4>
         }
-    
+    */
     return(
         <div>
             <div className="py-3 bg-warning">
@@ -140,21 +139,25 @@ function Checkout(){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {cart.map((item, idx) => {
-                                            totalCartPrice += item.product.selling_price * item.product_qty;
+                                        {products.map((item, idx) => {
+                                            totalCartPrice += item.price * item.qty;
                                             return(
                                                 <tr key={idx}>
-                                                    <td>{item.product.name}</td>
-                                                    <td>{item.product.selling_price}</td>
-                                                    <td>{item.product_qty}</td>
-                                                    <td>{item.product.selling_price * item.product.qty }</td>
+                                                    <td>{item.name}</td>
+                                                    <td>{item.price} GBP</td>
+                                                    <td>{item.qty}</td>
+                                                    <td>{item.price * item.qty }</td>
                                                 </tr>
                                             )
                                         
                                         })}
                                         <tr>
-                                            <td colSpan="2" className="text-end fw bold"> Grand Total</td>
-                                            <td colSpan="2" className="text-end fw">{totalCartPrice}</td>
+                                            <td colSpan="2" className="text-end fw bold">&nbsp;</td>
+                                            <td colSpan="2" className="text-end fw">---</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="2" className="text-end fw bold"> <h2>Grand Total</h2></td>
+                                            <td colSpan="2" className="text-end fw"><h2>{totalCartPrice} GBP</h2></td>
                                         </tr>
                                     </tbody>
                                 </table>

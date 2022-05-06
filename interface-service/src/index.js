@@ -18,6 +18,7 @@ import Cart from './pages/Cart';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider} from  'react-redux';
 import store from './redux/store';
+import Checkout from './pages/Checkout';
 
 ReactDOM.render(
     
@@ -35,6 +36,7 @@ ReactDOM.render(
      <Route path = "/Men/Shirts" element={<MShirts/>}> </Route>
      <Route path = "/Men/Trousers" element={<MTrousers/>}> </Route>
      <Route path = "/Cart" element={<Cart/>}> </Route>
+     <Route path = "/Checkout" element={<Checkout/>}> </Route>
 
    </Routes>
    </Provider>
