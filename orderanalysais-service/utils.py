@@ -109,3 +109,6 @@ def GenRecommendations(currently_viewed_item,n=5):
             item = np.random.choice(inventory, p=probabilities)
         recommendations.append(item)
     return recommendations
+
+if __name__ == "__main__":
+    print(DataGenerator(10))
