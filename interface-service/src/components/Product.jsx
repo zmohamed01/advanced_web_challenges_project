@@ -5,7 +5,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import { useDispatch } from 'react-redux';
+import * as actionTypes from  '../redux/shopping/shopping-types';
 
 const Image = styled.img`
 height: 75%;
@@ -63,10 +64,16 @@ const Button = styled.button`
     `
 
 const FProduct = ({item}) => {
+  const dispatch = useDispatch()
+
+  const addToCart = (item) =>{
+    dispatch({ type:actionTypes.ADD_TO_CART  , payload: item})
+    console.log('Item added ',item)
+  }
   return (
     <Container>
         <Images>
-        <Image src = {require(`../images/${item.id}.jpg`)}/>
+        <Image src = {item.image}/>
         </Images>
         <AccordionCont>
         <Accordion expanded='true'>
@@ -91,7 +98,7 @@ const FProduct = ({item}) => {
             <Option>L</Option>
           </Select>
           </Dropdown>
-            <Button>Add to Bag </Button>
+            <Button onClick={()=>addToCart(item)}>Add to Bag </Button>
           </Typography>
         </AccordionDetails>
       </Accordion></AccordionCont>

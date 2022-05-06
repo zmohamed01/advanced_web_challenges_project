@@ -15,11 +15,14 @@ import FTrousers from './pages/FTrousers';
 import MShirts from './pages/MShirts';
 import MTrousers from './pages/MTrousers';
 import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-
+import { createStore, applyMiddleware } from 'redux';
+import { Provider} from  'react-redux';
+import store from './redux/store';
 
 ReactDOM.render(
+    
    <BrowserRouter> 
+   <Provider store={store}>
    <Routes>
      <Route path = "/" element={<App/>}> </Route>
      <Route path = "/Login" element={<Login/>}> </Route>
@@ -32,11 +35,11 @@ ReactDOM.render(
      <Route path = "/Men/Shirts" element={<MShirts/>}> </Route>
      <Route path = "/Men/Trousers" element={<MTrousers/>}> </Route>
      <Route path = "/Cart" element={<Cart/>}> </Route>
-     <Route path = "/Checkout" element={<Checkout/>}> </Route>
 
    </Routes>
-
+   </Provider>
    </BrowserRouter>,
+ 
   document.getElementById('root')
 );
 
