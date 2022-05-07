@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Banner = () => {
   return (
-    <div><Container>
+    <div><Container data-testid="banner-1">
         FREE SHIPPING ON ORDERS OVER £40!
         </Container></div>
   )

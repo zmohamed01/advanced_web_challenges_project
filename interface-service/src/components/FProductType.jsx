@@ -64,19 +64,19 @@ const FProductType = () => {
       <Container>
       <Image src= "https://images.pexels.com/photos/10153595/pexels-photo-10153595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
     <Info>
-      <Title> Browse Shirts</Title>
+      <Title data-testid="fproducttype-1"> Browse Shirts</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Women/Shirts">SHOP NOW</Link></Button>
     </Info></Container>
     <Container>
     <Image src= "https://images.pexels.com/photos/885590/pexels-photo-885590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
     <Info>
-      <Title> Browse Trousers</Title>
+      <Title data-testid="fproducttype-2"> Browse Trousers</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Women/Trousers">SHOP NOW</Link></Button>
     </Info></Container>
     <Container>
     <Image src= "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZHJlc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" />
     <Info>
-      <Title> Browse Dresses</Title>
+      <Title data-testid="fproducttype-3"> Browse Dresses</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Women/Dresses">SHOP NOW</Link></Button>
     </Info></Container>
     

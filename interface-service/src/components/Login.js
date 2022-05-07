@@ -20,8 +20,8 @@ function Login({LoggingIn, error}){
                     <div class="col-12 text-center align-self-center py-5">
                         <div class="section pb-5 pt-5 pt-sm-2 text-center">
                             <h6 class="mb-0 pb-3">
-                                <span> Log In </span>
-                                <span> Sign Up </span>
+                                <span data-testid="login-1"> Log In </span>
+                                <span data-testid="signup-1"> Sign Up </span>
                             </h6>
                                 <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
                                 <label for="reg-log"></label>

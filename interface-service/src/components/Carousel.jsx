@@ -106,7 +106,7 @@ const Carousel = () => {
             </Images>
             <Details><Heading>{item.heading}</Heading>
             <Paragraph>{item.paragraph}</Paragraph>
-            <Button><Link style={{ textDecoration: 'none'}} to="/Men">SHOP MENS</Link></Button> &nbsp;&nbsp;&nbsp;
+            <Button><Link style={{ textDecoration: 'none'}} to="/Men" data-testid="carousel-1">SHOP MENS</Link></Button> &nbsp;&nbsp;&nbsp;
             <Button><Link style={{ textDecoration: 'none'}} to="/Women">SHOP WOMENS</Link></Button>
             </Details>
             </Slide>
