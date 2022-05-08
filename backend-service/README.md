@@ -7,7 +7,7 @@ This folder contains all the APIs used in this project.
 - Create a virtaul environment using 
   - python -m venv .\venv 
 - Activate a virtaul environment using 
-  - venv\scripts\activate
+  - venv\scripts\activate.bat
 - Install all the required dependencies using 
   - pip install -r requirements.txt  
 - Finally Run the server 
