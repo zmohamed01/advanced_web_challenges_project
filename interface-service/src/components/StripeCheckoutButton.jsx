@@ -13,7 +13,7 @@ const StripeCheckoutButton = ({ price }) => {
     return (
         <StripeCheckout
             label='Pay Now'
-            name='Freaky Jolly Co.'
+            name='University Of Surrey'
             billingAddress
             shippingAddress
             // image='https://www.freakyjolly.com/wp-content/uploads/2020/04/fj-logo.png'
