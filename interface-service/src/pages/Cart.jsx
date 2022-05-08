@@ -19,12 +19,19 @@ function Cart(){
 
 const state = useSelector((state) => state);
 const products = state.shop.products;
+console.log("Products" , products);
+let totalPrice = 0
+for(let i = 0 ; i < products.length ; i++ ){
+    totalPrice = totalPrice + products[i].price * products[i].qty ; 
+}
 
-console.log(" ===>>> " , products)
+console.log("totalPrice ::: ",totalPrice);
 
 
 const [loading, setLoading ] = useState(true);
 const [cart, setCart] = useState([]);
+
+
 
     // if(!localStorage.getItem('auth_token')){
     //     navigate.push("/");
@@ -130,10 +137,10 @@ const [cart, setCart] = useState([]);
                                 <div className="card card-body mt-3">
                                     <br/>
                                     <h4>Sub Total:
-                                        <span className="float-end">00</span>
+                                        <span className="float-end">{totalPrice}</span>
                                     </h4>
                                     <h4> Grand Total:
-                                        <span className="float-end">00</span>
+                                        <span className="float-end">{totalPrice}</span>
                                     </h4>
                                     <hr/>
                                     <Link to = "/Checkout" className="btn btn-primary"> Checkout</Link>
