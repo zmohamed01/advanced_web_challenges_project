@@ -19,11 +19,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider} from  'react-redux';
 import store from './redux/store';
 import Checkout from './pages/Checkout';
+import {Elements} from '@stripe/react-stripe-js';
+ import {stripePromise} from './components/stripe/stripe.js'
 
 ReactDOM.render(
     
    <BrowserRouter> 
+   {/* <Element stripe = {stripePromise}> */}
    <Provider store={store}>
+     <Elements stripe = {stripePromise} >
    <Routes>
      <Route path = "/" element={<App/>}> </Route>
      <Route path = "/Login" element={<Login/>}> </Route>
@@ -39,7 +43,9 @@ ReactDOM.render(
      <Route path = "/Checkout" element={<Checkout/>}> </Route>
 
    </Routes>
+    </Elements>
    </Provider>
+
    </BrowserRouter>,
  
   document.getElementById('root')
