@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector  , useDispatch} from 'react-redux'
 
 import PaymentForm from '../components/payment-form/payment-form.jsx'
+// import Button , { Button_TYPE_CLASSES} from '../button/button.component';
+import StripeCheckoutButton from '../components/StripeCheckoutButton'
 function Checkout(){
     
     const state = useSelector((state) => state);
     const products = state.shop.products;
 
+    console.log("");
     const navigate = useNavigate();
     let totalCartPrice = 0;
     // if(!localStorage.getItem('auth_token')){
@@ -161,7 +164,9 @@ function Checkout(){
                                             <td colSpan="2" className="text-end fw bold"> <h2>Grand Total</h2></td>
                                             <td colSpan="2" className="text-end fw"><h2>{totalCartPrice} GBP</h2></td>
 
-                                            <PaymentForm/>
+                                            {/* <PaymentForm/> */}
+
+                                            <StripeCheckoutButton price={totalCartPrice}> </StripeCheckoutButton>
 
                                         </tr>
                                     </tbody>
