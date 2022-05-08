@@ -4,6 +4,8 @@ import swal from 'sweetalert';
 import { Navigate, useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSelector  , useDispatch} from 'react-redux'
+
+import PaymentForm from '../components/payment-form/payment-form.jsx'
 function Checkout(){
     
     const state = useSelector((state) => state);
@@ -158,6 +160,9 @@ function Checkout(){
                                         <tr>
                                             <td colSpan="2" className="text-end fw bold"> <h2>Grand Total</h2></td>
                                             <td colSpan="2" className="text-end fw"><h2>{totalCartPrice} GBP</h2></td>
+
+                                            <PaymentForm/>
+
                                         </tr>
                                     </tbody>
                                 </table>
