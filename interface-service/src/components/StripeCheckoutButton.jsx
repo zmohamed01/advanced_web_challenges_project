@@ -17,7 +17,7 @@ const StripeCheckoutButton = ({ price }) => {
             billingAddress
             shippingAddress
             // image='https://www.freakyjolly.com/wp-content/uploads/2020/04/fj-logo.png'
-            description={`Your total is $${price}`}
+            description={`Your total is GBP ${price}`}
             amount={priceForStripe}
             panelLabel='Pay Now'
             token={onToken}
