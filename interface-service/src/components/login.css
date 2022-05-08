@@ -405,3 +405,7 @@ welcome h2 span{
     color: #FE4880;
     font-weight: 700;
 }
+
+.error-colour{
+  color: #FE4880;
+}

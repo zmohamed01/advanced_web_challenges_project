@@ -6,7 +6,9 @@ import {Link} from "react-router-dom"
 import logo from './logo2.png';
 
 import { useSelector } from 'react-redux'
-import * as actionTypes from  '../redux/shopping/shopping-types';
+import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 
 export let totalQty;
 
@@ -74,6 +76,8 @@ const IconLinks = styled.div`
 
 const Navbar = () => {
 
+  const navigate = useNavigate()
+  const [isUserLoggedIn , setUserLoggedIn] = useState(false);
   const state = useSelector((state) => state);
   const products = state.shop.products;
   let qty = 0 ;
@@ -84,6 +88,20 @@ const Navbar = () => {
        totalQty = totalQty + products[i].qty;
       // console.log(products[i])
   }
+
+  useEffect(()=>{
+    if(localStorage.getItem('user'))
+      setUserLoggedIn(true)
+  }, [])
+
+
+
+  const logout = () =>{
+    console.log('Logout..');
+    localStorage.removeItem('user');
+    navigate('/Login');
+  }
+
 
   console.log('Total qty = ', totalQty);
   //console.log("products in cart.....",products);
@@ -98,9 +116,18 @@ const Navbar = () => {
           
           <Link to="/"><Logo src = {logo} /></Link>
         </CNav>
+       
         <RNav>
-          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Signup">SIGNUP</Link></PageLinks>
-          <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>
+          {
+            !isUserLoggedIn && (<PageLinks><Link style={{ textDecoration: 'none'}} to="/Signup">SIGNUP</Link></PageLinks>)
+          }
+          {
+            !isUserLoggedIn && ( <PageLinks><Link style={{ textDecoration: 'none'}} to="/Login">LOGIN</Link></PageLinks>)
+          }
+
+          {
+            isUserLoggedIn && <button onClick={logout}>Logout</button>
+          }
           <SearchBar>
           <Input/>
           <Search style = {{color: "purple", fontSize: 18}} />

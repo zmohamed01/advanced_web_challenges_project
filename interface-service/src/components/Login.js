@@ -1,13 +1,41 @@
 import React, {useState} from 'react';
 import './login.css';
 
+import {useNavigate} from 'react-router-dom';
 
-function Login({LoggingIn, error}){
+function Login({}){
+    
+    const adminUser = {
+        email: "admin@admin.com",
+        password: "admin123"
+    }
+
+    const navigate = useNavigate();
     const [details, setDetails] = useState({name: "", email: "", password: ""});
+    const [user, setUser] = useState({name: "", email: ""});
+    const [error, setError] = useState("");
+
     const submitHandler = e =>{
         e.preventDefault();
-
+       
         LoggingIn(details);
+    }
+
+    const LoggingIn = details =>{
+        console.log(details);
+
+        if(details.email == adminUser.email && details.password == adminUser.password){
+            console.log("Logged In");
+            setUser({
+                name: details.name,
+                email: details.email
+            });
+            localStorage.setItem('user' , details.email);
+            navigate('/')
+        } else{
+        console.log("Details, do not match, register");
+        setError("Details, do not match, please sign up");
+        }
     }
 
 
@@ -32,7 +60,7 @@ function Login({LoggingIn, error}){
                                                 <div class="section text-center">
                                                     <h4 class="mb-4 pb-3">Log In</h4>
                                                     <div className="form-group">
-                                                         {(error != "") ? ( <div className= "error">{error}</div>) : ""}
+                                                         {(error != "") ? ( <div className= "error error-colour">{error}</div>) : ""}
                                                         {/* <div className="form-group">
 
                                                             <input type="text" name="name" class="form-style" placeholder= "Your name" id="name" onChange={e => setDetails({...details, name:e.target.value})}value={details.name}/>
