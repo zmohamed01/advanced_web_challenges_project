@@ -166,7 +166,7 @@ function Checkout(){
 
                                             {/* <PaymentForm/> */}
 
-                                            <StripeCheckoutButton price={totalCartPrice}> </StripeCheckoutButton>
+                                            <StripeCheckoutButton price={totalCartPrice * 100 }> </StripeCheckoutButton>
 
                                         </tr>
                                     </tbody>
