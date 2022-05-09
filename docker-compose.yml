@@ -1,25 +1,38 @@
-services:
+version: "3.9"
 
+services:
 
   backend-service:
     build: ./backend-service
     volumes:
       - ./backend-service:/usr/src/app
+    networks:
+      - front_back
+      - orderanalysis
     ports:
       - 4000:4000
-
 
   interface-service:
     build: ./interface-service
     volumes:
       - ./interface-service:/usr/src/app
+    networks:
+      - front_back
     ports:
-      - 8000:8000
-
+      - 3000:3000
 
   orderanalysis-service:
     build: ./orderanalysis-service
     volumes:
-      - ./interface-service:/usr/src/app
+      - ./orderanalysis-service:/usr/src/app
+    networks:
+      - orderanalysis
     ports:
       - 7000:7000
+
+networks:
+  front_back:
+    driver: bridge
+
+  orderanalysis:
+    driver: bridge
