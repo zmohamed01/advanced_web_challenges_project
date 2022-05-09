@@ -379,7 +379,7 @@ form .form-inner .form-group input:focus {
 }
 
 form .form-inner input[type= "submit"],
-.welcome button: hover{
+.welcome button{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
