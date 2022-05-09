@@ -18,23 +18,33 @@ function Cart(){
         dispatch({ type:actionTypes.REMOVE_FROM_CART  , payload: product})
     }
 
-    const handleDecrement = (cart_id) =>{
-        setCart(cart=>
-            cart.map((product)=>
-                cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 1? 1:0)} : product
-                )
-            );
-            updateCartQuantity(cart_id, "dec");
+    const handleDecrement = (product) => {
+        console.log("Product = ", product);
+        dispatch({ type:actionTypes.DECREMENT_FROM_CART  , payload: product})
     }
 
-    const handleIncrement = (cart_id) => {
-        setCart(cart=>
-            cart.map((product)=>
-                cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 10? 1:0)} : product
-                )
-            );
-            updateCartQuantity(cart_id, "inc");
+    const handleIncrement = (product) => {
+        console.log("Product = ", product);
+        dispatch({ type:actionTypes.INCREMENT_FROM_CART  , payload: product})
     }
+
+    // const handleDecrement = (cart_id) =>{
+    //     setCart(cart=>
+    //         cart.map((product)=>
+    //             cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 1? 1:0)} : product
+    //             )
+    //         );
+    //         updateCartQuantity(cart_id, "dec");
+    // }
+
+    // const handleIncrement = (cart_id) => {
+    //     setCart(cart=>
+    //         cart.map((product)=>
+    //             cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 10? 1:0)} : product
+    //             )
+    //         );
+    //         updateCartQuantity(cart_id, "inc");
+    // }
 
     function updateCartQuantity(cart_id, scope){
         axios.put(`/api/cart-updatequantity/${cart_id}/${scope}`).then(res =>{
@@ -56,7 +66,7 @@ function Cart(){
     console.log("totalPrice ::: ",totalPrice);
 
 
-    const [loading, setLoading ] = useState(true);
+    // const [loading, setLoading ] = useState(true);
     const [cart, setCart] = useState([]);
 
     // if(!localStorage.getItem('auth_token')){
@@ -119,7 +129,8 @@ function Cart(){
                             <div className="input-group">
                                 <button type="button" onClick={() => handleDecrement(product.id)} className="input-group-text">-</button>
                                 <div  className="form-control text-center">{product.qty}</div>
-                                <button type="button" onClick={() => handleIncrement(product.id)} className="input-group-text">+</button>
+                                {/* <button type="button" onClick={() => handleIncrement(product.id)} className="input-group-text">+</button> */}
+                                <button type="button"  onClick= {()=> handleIncrement(product)}> +</button>
                             </div>
                         </td>
                         <td width="15%" className="text-center">{product.price * product.qty }</td>
