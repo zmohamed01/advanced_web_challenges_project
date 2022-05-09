@@ -2,7 +2,7 @@
 
 This is the recommender engine microservice which takes in order data to produce item co-occurrence probability tables `ptable.npy` for each item and then uses them to draw samples based on the item's respective distribution.
 
-All functions are within `utils.py`.
+For more in detail explanations of how the functions work look within `utils.py`
 
 ## Data generation
 Due to lack of available order data, the function `DataGenerator` was made to generate example data for training. It is in the format:
