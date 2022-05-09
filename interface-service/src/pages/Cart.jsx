@@ -46,13 +46,13 @@ function Cart(){
     //         updateCartQuantity(cart_id, "inc");
     // }
 
-    function updateCartQuantity(cart_id, scope){
-        axios.put(`/api/cart-updatequantity/${cart_id}/${scope}`).then(res =>{
-            if(res.data.status === 200){
-                swal("Success", res.data.message, "success");
-            }
-        });
-    }
+    // function updateCartQuantity(cart_id, scope){
+    //     axios.put(`/api/cart-updatequantity/${cart_id}/${scope}`).then(res =>{
+    //         if(res.data.status === 200){
+    //             swal("Success", res.data.message, "success");
+    //         }
+    //     });
+    // }
 
 
     const state = useSelector((state) => state);
@@ -127,10 +127,10 @@ function Cart(){
                         <td width="15%" className="text-center">{product.price}</td>
                         <td width="15%">
                             <div className="input-group">
-                                <button type="button" onClick={() => handleDecrement(product.id)} className="input-group-text">-</button>
+                                <button type="button" onClick={() => handleDecrement(product)} className="input-group-text">-</button>
                                 <div  className="form-control text-center">{product.qty}</div>
                                 {/* <button type="button" onClick={() => handleIncrement(product.id)} className="input-group-text">+</button> */}
-                                <button type="button"  onClick= {()=> handleIncrement(product)}> +</button>
+                                <button type="button"  onClick= {()=> handleIncrement(product)}className="input-group-text"> +</button>
                             </div>
                         </td>
                         <td width="15%" className="text-center">{product.price * product.qty }</td>
