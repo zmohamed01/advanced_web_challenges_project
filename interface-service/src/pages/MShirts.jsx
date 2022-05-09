@@ -40,8 +40,8 @@ axios(
         <Navbar/>
         <Heading>Shirts</Heading> 
         <Container>
-            {products.map((e) =>  (
-                <Product item = {e} key = {e.id}/>
+            {mshirts.map((item) =>  (
+                <Product item = {item} key = {item.id}/>
             ))
             
         }

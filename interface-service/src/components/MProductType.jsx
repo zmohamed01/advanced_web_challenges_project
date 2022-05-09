@@ -67,33 +67,37 @@ const Button = styled.button`
 
 const MProductType = () => {
 
-   const [categories , setCategories] = useState([])
+  //  const [categories , setCategories] = useState([])
 
-  useEffect(() => {
-    console.log("Use effect called");
-    axios({
-      method:'get',
-      url:'http://localhost:8000/api/category'
-    }).then((response)=>{
-      console.log(response.data)
-      setCategories(response.data)
-    })
-  } , []);
+  // useEffect(() => {
+  //   console.log("Use effect called");
+  //   axios({
+  //     method:'get',
+  //     url:'http://localhost:8000/api/category'
+  //   }).then((response)=>{
+  //     console.log(response.data)
+  //     setCategories(response.data)
+  //   })
+  // } , []);
 
-  return categories==[] ? (<div>Loading ....</div>) : (
-    <Container2>
-      {
-        categories.map(e=>(
-          <Container>
-            <Image src= {require(`../images/${e.name}.jpg`)} />
-          <Info>
-            <Title> {e.name}</Title>
-            <Button><Link style={{ textDecoration: 'none'}} to={`/Men/${e.name}`}>SHOP NOW</Link></Button>
-          </Info></Container>
-        ))
-        }
+  return (
+  
+  //categories==[] ? (<div>Loading ....</div>) : (
+    //<Container2>
+      //{
+      //  categories.map(e=>(
+        //  <Container>
+          //  <Image src= {require(`../images/${e.name}.jpg`)} />
+          //<Info>
+          //  <Title> {e.name}</Title>
+          //  <Button><Link style={{ textDecoration: 'none'}} to={`/Men/${e.name}`}>SHOP NOW</Link></Button>
+         // </Info></Container>
+       // ))
+      //  }
       
-      {/*<Container>
+    //  {
+      <Container2>
+        <Container>
       <Image src= "https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
     <Info>
       <Title> Browse Shirts 1</Title>
@@ -105,7 +109,7 @@ const MProductType = () => {
       <Title> Browse Trousers</Title>
       <Button><Link style={{ textDecoration: 'none'}} to="/Men/Trousers">SHOP NOW</Link></Button>
     </Info></Container>
-      */}
+      
   </Container2>
   
   )
