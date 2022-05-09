@@ -7,6 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useSelector  , useDispatch} from 'react-redux'
 import * as actionTypes from  '../redux/shopping/shopping-types';
 import './checkout.css';
+import Navbar from '../components/Navbar';
 
 function Cart(){
     const dispatch = useDispatch()
@@ -143,6 +144,7 @@ function Cart(){
         </div>
     }
     return(
+        [<Navbar/>,
             <div>
                 <div className="py-3 bg-warning">
                     <div className="container">
@@ -175,7 +177,7 @@ function Cart(){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>]
 
         )
 }

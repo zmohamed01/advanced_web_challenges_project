@@ -9,6 +9,7 @@ import './checkout.css';
 import PaymentForm from '../components/payment-form/payment-form.jsx'
 // import Button , { Button_TYPE_CLASSES} from '../button/button.component';
 import StripeCheckoutButton from '../components/StripeCheckoutButton'
+import Navbar from '../components/Navbar';
 function Checkout(){
     
     const state = useSelector((state) => state);
@@ -133,7 +134,7 @@ function Checkout(){
                                   //  </div>
                                // </div>
                            // </div>
-
+                            [<Navbar/>, 
                             <div className="col-md-5">
                                 <table className="table table-bordered">
                                     <thead>
@@ -172,7 +173,7 @@ function Checkout(){
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div>]
                       //  </div>
                    // </div>
                 //</div>

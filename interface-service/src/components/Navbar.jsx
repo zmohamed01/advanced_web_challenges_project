@@ -15,7 +15,7 @@ export let totalQty;
 
 const Container = styled.div`
     height: 100px;
-    /* background-color: #FAF9F6 ; */
+    background-color: white;
 `
 const Container2 = styled.div`
     padding: 10px 20px;
