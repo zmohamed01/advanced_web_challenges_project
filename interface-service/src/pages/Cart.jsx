@@ -64,31 +64,31 @@ function Cart(){
     // }
 
     
-    useEffect(()=>{
-        let isMounted = true;
-        axios.get(`/api/cart`).then(res =>{
-            if(isMounted)
-            {
-                if(res.data.status === 200)
-                {
-                    setCart(res.data.cart);
-                    setLoading(false);
-                }
-                else if(res.data.status === 401)
-                {
-                    navigate.push('/');
-                    swal("Warning", res.data.message, "error");
-                }
-            }
-        });
-        return () => {
-            isMounted = false;
-        };
-    }, [navigate]);
+    // useEffect(()=>{
+    //     let isMounted = true;
+    //     axios.get(`/api/cart`).then(res =>{
+    //         if(isMounted)
+    //         {
+    //             if(res.data.status === 200)
+    //             {
+    //                 setCart(res.data.cart);
+    //                 setLoading(false);
+    //             }
+    //             else if(res.data.status === 401)
+    //             {
+    //                 navigate.push('/');
+    //                 swal("Warning", res.data.message, "error");
+    //             }
+    //         }
+    //     });
+    //     return () => {
+    //         isMounted = false;
+    //     };
+    // }, [navigate]);
 
-    if(loading){
-        return <h4>Loading Product Detail ...</h4>
-    }
+    // if(loading){
+    //     return <h4>Loading Product Detail ...</h4>
+    // }
 
     var cart_HTML = '';
     if(products.length > 0)
