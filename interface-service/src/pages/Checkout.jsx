@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 import { Navigate, useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSelector  , useDispatch} from 'react-redux'
+import './checkout.css';
 
 import PaymentForm from '../components/payment-form/payment-form.jsx'
 // import Button , { Button_TYPE_CLASSES} from '../button/button.component';
@@ -74,49 +75,49 @@ function Checkout(){
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>Last Name</label>
-                                                <input type="text" name="firstname" className="form-control"/>
+                                                <input class= 'input' type="text" name="firstname" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>Phone Number</label>
-                                                <input type="text" name="phone" className="form-control"/>
+                                                <input class= 'input' type="text" name="phone" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>Email Address</label>
-                                                <input type="text" name="email" className="form-control"/>
+                                                <input class= 'input' type="text" name="email" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-12">
                                             <div className="form-group mb-3">
                                                 <label>Full Address</label>
-                                                <input rows="3" className="form-control"/>
+                                                <input class= 'input' rows="3" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>City</label>
-                                                <input type="text" name="city" className="form-control"/>
+                                                <input class= 'input' type="text" name="city" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>State</label>
-                                                <input type="text" name="state" className="form-control"/>
+                                                <input class= 'input' type="text" name="state" className="form-control"/>
                                             </div>
                                         </div>
 
                                         <div className="col-md-6">
                                             <div className="form-group mb-3">
                                                 <label>Post Code</label>
-                                                <input type="text" name="zipcode" className="form-control"/>
+                                                <input class= 'input' type="text" name="zipcode" className="form-control"/>
                                             </div>
                                         </div>
 

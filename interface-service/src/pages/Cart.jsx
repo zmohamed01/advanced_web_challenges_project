@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import { useSelector  , useDispatch} from 'react-redux'
 import * as actionTypes from  '../redux/shopping/shopping-types';
+import './checkout.css';
 
 function Cart(){
     const dispatch = useDispatch()
@@ -16,20 +17,46 @@ function Cart(){
         dispatch({ type:actionTypes.REMOVE_FROM_CART  , payload: product})
     }
 
+    const handleDecrement = (cart_id) =>{
+        setCart(cart=>
+            cart.map((product)=>
+                cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 1? 1:0)} : product
+                )
+            );
+            updateCartQuantity(cart_id, "dec");
+    }
 
-const state = useSelector((state) => state);
-const products = state.shop.products;
-console.log("Products" , products);
-let totalPrice = 0
-for(let i = 0 ; i < products.length ; i++ ){
-    totalPrice = totalPrice + products[i].price * products[i].qty ; 
-}
+    const handleIncrement = (cart_id) => {
+        setCart(cart=>
+            cart.map((product)=>
+                cart_id == product.id ? {... product, product_qty : product.product_qty - (product.product_qty > 10? 1:0)} : product
+                )
+            );
+            updateCartQuantity(cart_id, "inc");
+    }
 
-console.log("totalPrice ::: ",totalPrice);
+    function updateCartQuantity(cart_id, scope){
+        axios.put(`/api/cart-updatequantity/${cart_id}/${scope}`).then(res =>{
+            if(res.data.status === 200){
+                swal("Success", res.data.message, "success");
+            }
+        });
+    }
 
 
-const [loading, setLoading ] = useState(true);
-const [cart, setCart] = useState([]);
+    const state = useSelector((state) => state);
+    const products = state.shop.products;
+    console.log("Products" , products);
+    let totalPrice = 0
+    for(let i = 0 ; i < products.length ; i++ ){
+        totalPrice = totalPrice + products[i].price * products[i].qty ; 
+    }
+
+    console.log("totalPrice ::: ",totalPrice);
+
+
+    const [loading, setLoading ] = useState(true);
+    const [cart, setCart] = useState([]);
 
     // if(!localStorage.getItem('auth_token')){
     //     navigate.push("/");
@@ -89,9 +116,9 @@ const [cart, setCart] = useState([]);
                         <td width="15%" className="text-center">{product.price}</td>
                         <td width="15%">
                             <div className="input-group">
-                                <button type="button" className="input-group-text">-</button>
+                                <button type="button" onClick={() => handleDecrement(product.id)} className="input-group-text">-</button>
                                 <div  className="form-control text-center">{product.qty}</div>
-                                <button type="button" className="input-group-text">+</button>
+                                <button type="button" onClick={() => handleIncrement(product.id)} className="input-group-text">+</button>
                             </div>
                         </td>
                         <td width="15%" className="text-center">{product.price * product.qty }</td>

@@ -1,0 +1,23 @@
+body {
+    background-color: #ccc;
+}
+
+input {
+    border: 1px solid #000;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+#myInput::-webkit-input-placeholder {
+    border-style:solid;
+    border-width:medium;
+}
+#myInput:-moz-placeholder {
+    border-style:solid;
+    border-width:medium;
+}
+#myInput:-ms-input-placeholder {
+    border-style:solid;
+    border-width:medium;
+}
